@@ -37,12 +37,13 @@ MJPG_STREAMER_WWW="$MJPG_STREAMER_INSTALL/www"
 DEVICE_IN="/dev/video0"
 
 # video settings
-RESOLUTION="640x480"
+#RESOLUTION="640x480"
+RESOLUTION="320x240"
 FPS=24
 
 # authentication
-USERNAME="pi"
-PASSWORD="raspberry"
+#USERNAME="pi"
+#PASSWORD="raspberry"
 if [ ! -z $USERNAME ] && [ ! -z $PASSWORD ]; then
 	AUTH="-c $USERNAME:$PASSWORD"
 else
@@ -58,7 +59,7 @@ PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_uvc.so -d $DEVICE_IN -r $RESOLUTION 
 #PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_uvc.so -d $DEVICE_IN -r $RESOLUTION -f $FPS -l $LED -y"
 #PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_raspicam.so -r $RESOLUTION -f $FPS -l $LED"
 
-PLUGIN_OUT="$MJPG_STREAMER_INSTALL/output_http.so -p $MJPG_STREAMER_PORT -w $MJPG_STREAMER_WWW $AUTH"
+PLUGIN_OUT="$MJPG_STREAMER_INSTALL/lib/output_http.so -p $MJPG_STREAMER_PORT -w $MJPG_STREAMER_WWW $AUTH"
 
 # run
 run_exec(){
