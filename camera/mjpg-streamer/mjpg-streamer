@@ -31,7 +31,7 @@ MJPG_STREAMER="$MJPG_STREAMER_INSTALL/bin/mjpg_streamer"
 MJPG_STREAMER_PORT="8080"
 
 # htmls and related files' location
-MJPG_STREAMER_WWW="$MJPG_STREAMER_INSTALL/www"
+MJPG_STREAMER_WWW="$MJPG_STREAMER_INSTALL/share/mjpg-streamer/www"
 
 # video device
 DEVICE_IN="/dev/video0"
@@ -39,7 +39,7 @@ DEVICE_IN="/dev/video0"
 # video settings
 #RESOLUTION="640x480"
 RESOLUTION="320x240"
-FPS=24
+FPS=25
 
 # authentication
 #USERNAME="pi"
@@ -55,11 +55,11 @@ LED="off"	# on/off/blink/auto (may not work on rpi camera modules)
 
 # plugin
 ### 2016-06-01
-PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_uvc.so -d $DEVICE_IN -r $RESOLUTION -f $FPS -l $LED"
+PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/mjpg-streamer/input_uvc.so -d $DEVICE_IN -r $RESOLUTION -f $FPS -l $LED"
 #PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_uvc.so -d $DEVICE_IN -r $RESOLUTION -f $FPS -l $LED -y"
 #PLUGIN_IN="$MJPG_STREAMER_INSTALL/lib/input_raspicam.so -r $RESOLUTION -f $FPS -l $LED"
 
-PLUGIN_OUT="$MJPG_STREAMER_INSTALL/lib/output_http.so -p $MJPG_STREAMER_PORT -w $MJPG_STREAMER_WWW $AUTH"
+PLUGIN_OUT="$MJPG_STREAMER_INSTALL/lib/mjpg-streamer/output_http.so -p $MJPG_STREAMER_PORT -w $MJPG_STREAMER_WWW $AUTH"
 
 # run
 run_exec(){
